@@ -28,4 +28,14 @@ enum Orientation {
         };
     }
 
+    public static Orientation valueOf(char cmd) {
+        return switch (cmd) {
+            case 'N' -> NORTH;
+            case 'S' -> SOUTH;
+            case 'E' -> EAST;
+            case 'W' -> WEST;
+            default -> throw new IllegalArgumentException("There does not exist a command corresponding to " + cmd);
+        };
+    }
+
 }

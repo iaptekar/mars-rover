@@ -15,7 +15,7 @@ public class MarsRover {
 
     private Position position;
 
-    public static MarsRover build(String x, String y, String orientation) {
+    public static MarsRover build(String x, String y, char orientation) {
         Position position = new Position(Integer.parseInt(x), Integer.parseInt(y), Orientation.valueOf(orientation));
         return new MarsRover(position);
     }

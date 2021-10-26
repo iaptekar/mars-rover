@@ -2,6 +2,9 @@ package org.iaptekar;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.util.List;
+
 import static org.iaptekar.Command.*;
 import static org.iaptekar.Orientation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -56,7 +59,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void test() {
+    public void testExample() {
         MarsLandscape landscape = new MarsLandscape(5, 3);
         String position = landscape.moveRover(new MarsRover(new Position(1, 1, EAST)), Command.decode("RFRFRFRF"));
         assertEquals("1 1 E", position);
@@ -64,6 +67,14 @@ public class MarsRoverTest {
         assertEquals("3 3 N LOST", position);
         position = landscape.moveRover(new MarsRover(new Position(0, 3, WEST)), Command.decode("LLFFFLFLFL"));
         assertEquals("2 3 S", position);
+    }
 
+    @Test
+    public void testExampleFile() throws IOException {
+        List<String> output = new FileInstructionLoader("src/test/resources/instructions.txt").execute();
+        assertEquals(3, output.size());
+        assertEquals("1 1 E", output.get(0));
+        assertEquals("3 3 N LOST", output.get(1));
+        assertEquals("2 3 S", output.get(2));
     }
 }
