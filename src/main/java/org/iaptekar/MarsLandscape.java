@@ -3,6 +3,9 @@ package org.iaptekar;
 import java.util.Collection;
 import java.util.HashSet;
 
+/**
+ * The 'grid' on which the mars rovers move
+ */
 public class MarsLandscape {
 
     private final int maxX;
@@ -18,12 +21,12 @@ public class MarsLandscape {
         return new MarsLandscape(Integer.parseInt(x), Integer.parseInt(y));
     }
 
-    public String moveRover(MarsRover rover, Command[] instructions) {
-        if (instructions == null || instructions.length == 0) {
+    public String moveRover(MarsRover rover, Command[] commands) {
+        if (commands == null || commands.length == 0) {
             return "";
         }
         Position lastPosition = null;
-        for (Command command : instructions) {
+        for (Command command : commands) {
             lastPosition = rover.getPosition();
             if (lostPositions.contains(lastPosition) && command == Command.FORWARD) {
                 continue;

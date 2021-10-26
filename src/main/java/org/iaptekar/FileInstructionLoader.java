@@ -9,6 +9,9 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Implements a @see InstructionLoader that loads an instructions file from the given file path
+ */
 public class FileInstructionLoader implements InstructionLoader {
 
     private final Path file;

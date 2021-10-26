@@ -3,6 +3,9 @@ package org.iaptekar;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+/**
+ * A MarsRover accepts commands and keeps track of its position
+ */
 @Getter
 @EqualsAndHashCode
 public class MarsRover {
