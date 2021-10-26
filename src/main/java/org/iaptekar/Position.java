@@ -20,4 +20,13 @@ public class Position {
         int newY = y + orientation.y();
         return new Position(newX, newY, orientation);
     }
+
+    public boolean isOutsideBounds(int maxX, int maxY) {
+        return (x < 0 || x > maxX) || (y < 0 || y > maxY);
+    }
+
+    @Override
+    public String toString() {
+        return x + " " + y + " " + orientation.name().charAt(0);
+    }
 }
